@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/home_page.css">
+    <script src="../static/scripts/home_page.js"></script>
+    <title>Home Page</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <button class="top-right-button"><a href="/logout">Logout</a></button>
+    <h1 class="logo"><a href=""><img src='../static/media/pictures/beyond-infinity-high-resolution-logo-transparent (1).png'></a></h1>
+    <div id="userDetails">
+        <div>Username: {{name}}</div>
+        <div>Email: {{email}}</div>
+    </div>
+    <hr width="80%">
+    <div id="welcome">
+        <h2><div id="name"><p align="center">Hi {{username}}!</p></div>
+            Welcome to Beyond Infinity
+        </h2>
+    </div>
+    <br><br>
+    <hr width="80%">
+    <br><br><br>
+    <button class="create"><a href="/upload">Upload <i class="fa fa-plus-circle"></i></a></button>
+    <div class="Galleries">
+        <h2>Image Gallery</h2>
+        
+        <div id="Image_Gallery">
+            {% for image in images %}
+                <div class="phot">
+                    <img class="image" src="data:image/jpeg;base64,{{image[0]}}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="Galleries">
+        <h2>Audio Gallery</h2>
+        <div id="Audio_Gallery">
+                {% for audio in audios %}
+                <div class="aud">
+                    <audio controls src="data:audio/mp3; base64,{{audio[0]}}" alt="{{audio[1]}}"></audio>
+                    <span class="audio-name" data-text="{{audio[1]}}">{{audio[1]}}</span>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+    <br><br>
+    <button class="create"><a href="/create">Create Video <i class="fa fa-video-camera"></i></a></button>
+    <hr width="80%">
+    <br><br>
+    <div class="last">
+    <h2>Developers</h2>
+    <div class="developers">
+        <figure>
+            <img class="developer-image" src="../static/media/pictures/My_Picture.jpeg" alt="Hardik Chadha">
+            <figcaption class="developer-info">
+                Hardik Chadha<br>
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:hardik.chadha@research.iiit.ac.in"><i style="color:red;" class="fa fa-envelope"></i></a>
+                    <a target="_blank" href="https://github.com/Hardik1106"><i style="color:white;" class="fa fa-github"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/hardik-chadha-876338266/"><i style="color:blue;" class="fa fa-linkedin-square"></i></a>
+                </div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img class="developer-image" src="../static/media/pictures/arnav_pic.jpg" alt="Arnav Sharma">
+            <figcaption class="developer-info">
+                Arnav Sharma<br>
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:arnav.sharma@research.iiit.ac.in"><i style="color:red;" class="fa fa-envelope"></i></a>
+                    <a target="_blank" href="https://github.com/iamarnav08"><i style="color:white;" class="fa fa-github"></i></a>
+                    <a target="_blank" href="http://www.linkedin.com/in/arnav-sharma-584841284/fr"><i style="color:blue;" class="fa fa-linkedin-square"></i></a>
+                </div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img class="developer-image" src="../static/media/pictures/WhatsApp Image 2024-02-06 at 15.40.55.png" alt="Sudheera Y.S.">
+            <figcaption class="developer-info">
+                Sudheera Y S<br>
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:sudheerays@gmail.com"><i style="color:red;" class="fa fa-envelope"></i></a>
+                    <a target="_blank" href="https://github.com/DheeruYS"><i style="color:white;" class="fa fa-github"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/sudheerays/"><i style="color:blue;" class="fa fa-linkedin-square"></i></a>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/create_page.css">
+    <script src="../static/scripts/create_page.js"></script>
+    <title>Create Page</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <button class="top-right-button"><a href="/">Home</a></button>
+    <h1 class="logo"><a href="/"><img src='../static/media/pictures/beyond-infinity-high-resolution-logo-transparent (1).png'></a></h1>
+    <hr width="80%">
+    <br><br>
+    <div class="Galleries">
+        <h2>Image Gallery</h2>
+        <div class="search-container">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" id="searchInput" onkeyup="searchImages()" placeholder="Search images...">
+        </div>
+        <div id="Image_Gallery">
+            {% for image_tuple in images %}
+                <div class="phot">
+                    <img class="image" src="data:image/jpeg;base64,{{ image_tuple[0] }}" alt="{{ image_tuple[1] }}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="Galleries">
+        <h2>Audio Gallery</h2>
+        <div class="search-container">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" id="searchInput2" onkeyup="searchAudios()" placeholder="Search audios...">
+        </div>
+        <div id="Audio_Gallery">
+            <h3>Preloaded Audios</h3>
+            <div class="preloaded">
+                <div class="aud">
+                    <audio src="static/media/audios/Idea 22 (Sped Up).mp3"  alt="Idea 22" controls></audio>
+                    <span class="audio-name" data-text="Idea 22">Idea 22</span>
+                </div>
+                <div class="aud">
+                    <audio src="static/media/audios/My_Way.mp3" alt="My_Way" controls></audio>
+                    <span class="audio-name" data-text="Idea My_Way">My_Way</span>
+                </div>
+                <div class="aud">
+                    <audio src="static/media/audios/Indie Corporate.mp3" alt="Indie Corporate" controls></audio>
+                    <span class="audio-name" data-text="Indie Corporate">Indie Corporate</span>
+                </div>
+            </div>
+            <hr width="80%">
+            <h3>Your Audios</h3>
+                {% for audio in audios %}
+                <div class="aud">
+                    <audio controls src="data:audio/mp3; base64,{{audio[0]}}" alt="{{audio[1]}}"></audio>
+                    <span class="audio-name" data-text="{{audio[1]}}">{{audio[1]}}</span>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+
+    <!-- <div class="audio-library Galleries">
+        <h2>Preloaded Audio Library</h2>
+        <div id="audioContainer"></div>
+    </div> -->
+
+    <br><br>
+    <div class="other_details" for="resolution"><h2>Select Resolution</h2>
+        <select name="resolution" id="resolution">
+            <option value="360">360p</option>
+            <option value="480">480p</option>
+            <option value="720">720p</option>
+            <option value="1080">1080p</option>
+        </select>
+    </div>
+    <div class="other_details" for="dimension"><h2>Select Dimension</h2>
+        <select name="dimension" id="dimension">
+            <option value="16:9">16:9</option>
+            <option value="4:3">4:3</option>
+        </select>
+    </div>
+    <button type="submit" class="create"><a>Create Video <i class="fa fa-video-camera"></i></a></i></button>
+    <hr width="80%">
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <!-- Add your loading spinner HTML or animation here -->
+        <i class="fa fa-spinner fa-spin"></i> Loading...
+    </div>
+    <div class="Preview">
+        <h2>Preview <i class="fa fa-video-camera"></i></h2>
+        <video  width="90%" height="80%" controls>
+            <source src="{{ video_path }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="create">
+            <a href="{{ video_path }}" download="slideshow_video.mp4">Download Video</a>
+        </button>
+    </div>  
+    <br><br>
+    <div class="last">
+    <h2>Developers</h2>
+    <div class="developers">
+        <figure>
+            <img class="developer-image" src="../static/media/pictures/My_Picture.jpeg" alt="Hardik Chadha">
+            <figcaption class="developer-info">
+                Hardik Chadha<br>
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:hardik.chadha@research.iiit.ac.in"><i style="color:red;" class="fa fa-envelope"></i></a>
+                    <a target="_blank" href="https://github.com/Hardik1106"><i style="color:white;" class="fa fa-github"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/hardik-chadha-876338266/"><i style="color:blue;" class="fa fa-linkedin-square"></i></a>
+                </div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img class="developer-image" src="../static/media/pictures/arnav_pic.jpg" alt="Arnav Sharma">
+            <figcaption class="developer-info">
+                Arnav Sharma<br>
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:arnav.sharma@research.iiit.ac.in"><i style="color:red;" class="fa fa-envelope"></i></a>
+                    <a target="_blank" href="https://github.com/iamarnav08"><i style="color:white;" class="fa fa-github"></i></a>
+                    <a target="_blank" href="http://www.linkedin.com/in/arnav-sharma-584841284/fr"><i style="color:blue;" class="fa fa-linkedin-square"></i></a>
+                </div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img class="developer-image" src="../static/media/pictures/WhatsApp Image 2024-02-06 at 15.40.55.png" alt="Sudheera Y.S.">
+            <figcaption class="developer-info">
+                Sudheera Y S<br>
+                <div class="social-icons">
+                    <a target="_blank" href="mailto:sudheerays@gmail.com"><i style="color:red;" class="fa fa-envelope"></i></a>
+                    <a target="_blank" href="https://github.com/DheeruYS"><i style="color:white;" class="fa fa-github"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/sudheerays/"><i style="color:blue;" class="fa fa-linkedin-square"></i></a>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+</html>

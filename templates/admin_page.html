@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="../static/styles/admin_page.css">
+    <script src="../static/scripts/admin_page.js" defer></script>
+</head>
+<html>
+<body>
+    <div class="logo" style="position: absolute; top: 2%; right: 2%;">
+        <a href="/"><img src='../static/media/pictures/beyond-infinity-high-resolution-logo-transparent (1).png' style="max-width: 20%; height: auto;"></a>
+    </div>
+    
+    <div id="admin-dashboard">
+        <button type="button"><a href="/logout">Logout</a></button>
+        <h2>Admin Dashboard</h2>    
+        <h4>Current Number of Users: {{count}}</h4>
+        <h3>Users</h3>
+        <table>
+           <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>UserName</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for user in users%}
+                <tr>
+                    <td>{{user.userid}}</td><td>{{user.name}}</td><td>{{user.email}}</td><td>{{user.username}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

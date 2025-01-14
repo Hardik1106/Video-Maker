@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel = "stylesheet" href="../static/styles/upload_page.css"> 
+        <title>Upload Page</title>
+    </head>
+    <body>
+        <button class="home-button"><a style="text-decoration: none" href="/">Home</a></button>
+        <div class="logo" style="position: absolute; top: 2%; right: 2%;">
+            <a href="/"><img src='../static/media/pictures/beyond-infinity-high-resolution-logo-transparent (1).png' style="max-width: 20%; height: auto;"></a>
+        </div>
+        <main class="app">
+            <div class="header">
+                <h2>Upload Images
+                    <i class="fa fa-image"></i>
+                </h2>
+                
+            </div>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="photo-div">
+                <p><span class="browse">Browse</span></p>
+                <input type="file" class="file" name="image" multiple="multiple" accept="image/png, image/jpeg, image/jpg" value="Drag and Drop Here">   
+            </div>
+
+            <div class="gallery1">
+                <input type="file" class="file" name="image" multiple="multiple" accept="image/png, image/jpeg, image/jpg" value="Drag and Drop Here">
+            </div>
+
+            <hr width="80%" >
+
+            <div class="header">
+                <h2>Upload Audio <i class="fa fa-music"></i></h2>
+            </div>
+            
+            <div class="audio-div">
+                <p><span class="browse">Browse</span></p>
+                <input type="file" name="audio" class="file" multiple="multiple" accept="audio/mp3">
+            </div>
+
+            <div class="gallery2">
+                <input type="file" name="audio" class="file" multiple="multiple" accept="audio/mp3">
+            </div>
+            
+            <hr width="80%" >
+
+            <div style="display: flex; justify-content: space-between;">
+                <div class="header">
+                    <button id="save_button" style="cursor:pointer;" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+            
+        </main>
+
+        <script src="../static/scripts/upload_page.js"></script>
+        
+    </body>
+</html>
+
+
